@@ -13,7 +13,7 @@
     "name": "Your name",
     "url": "http://example.com"
   },
-  "type": "certified",
+  "type": "privileged",
   "permissions": {
     "nfc": {},
     "audio-capture": {},
