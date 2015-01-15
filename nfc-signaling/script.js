@@ -26,6 +26,8 @@ var els = {
   },
 };
 
+setTimeout(addOwnStream, 1000);
+
 // Run when devices touch
 navigator.mozNfc.onpeerfound = function(e) {
   console.log('onpeerfound', e);
@@ -44,13 +46,17 @@ navigator.mozNfc.onpeerlost = function(e) {
   peer = null;
 };
 
-// get a local stream, show it in a self-view and add it to be sent
-navigator.mozGetUserMedia({ video: true }, function(stream) {
-  console.log('got stream', stream);
-  els.videos.self.mozSrcObject = stream;
-  els.videos.self.play();
-  rtc.addStream(stream);
-}, function(err) {});
+// get a local stream, show it in a
+// self-view and add it to be sent
+function addOwnStream() {
+  console.log('add own stream');
+  navigator.mozGetUserMedia({ video: true }, function(stream) {
+    console.log('got stream', stream);
+    els.videos.self.mozSrcObject = stream;
+    els.videos.self.play();
+    rtc.addStream(stream);
+  }, function(err) {});
+}
 
 // Run when connection is established
 rtc.ondatachannel = function(e) {
@@ -70,6 +76,7 @@ rtc.onaddstream = function(e) {
 
 function sendOffer() {
   createOffer(function(offer) {
+    debug('sending offer', offer);
     peer.sendNDEF([new MozNDEFRecord({
       tnf: 'well-known',
       type: fromUtf8('T'),
