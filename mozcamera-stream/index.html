@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1">
+  <title>Network IP Address via ipcalf.com</title>
+  <style>
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      width: 100%;
+      height: 100%;
+      background: #222;
+      color: #fff;
+    }
+
+    .video-self {
+      width: 70px;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      margin: 14px;
+    }
+
+    .fill {
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      width: 100%;
+      height: 100%;
+    }
+
+    .steps {
+      display: flex;
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+      padding-bottom: 21px;
+    }
+
+    .step {
+      font-size: 32px;
+      font-weight: 300;
+      font-style: italic;
+    }
+
+  </style>
+</head>
+<body>
+  <video class="video-remote fill"></video>
+  <video class="video-self"></video>
+  <div class="steps fill">
+    <h3 class="step step-touch-devices">Touch two devices on the same network</h3>
+    <h3 hidden class="step step-tap-to-call">Tap to call</h3>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
